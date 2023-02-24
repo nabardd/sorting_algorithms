@@ -11,11 +11,11 @@
 
 void insertion_sort_list(listint_t **list)
 {
-        /* setting variables for pointer and temporary variable*/
-        listint_t *ptr, *tmp;
+	/* setting variables for pointer and temporary variable*/
+	listint_t *ptr, *tmp;
 
-        /* Check if list is empty*/
-        if (list == NULL)
+	/* Check if list is empty*/
+	if (list == NULL)
                 return;
 
         ptr = *list;
@@ -40,8 +40,8 @@ void insertion_sort_list(listint_t **list)
                         if (tmp->prev)
                                 ptr = tmp->prev;
 
-                        else
-                                *list = tmp;
+                                else
+                                        *list = tmp;
 
                         print_list(*list);
                 }
