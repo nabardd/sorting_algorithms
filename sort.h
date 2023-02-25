@@ -13,17 +13,17 @@
 
 typedef struct listint_s
 {
-    /* data */
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	/* data */
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 int swap(int *a, int *b)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 /* Helper functions */
