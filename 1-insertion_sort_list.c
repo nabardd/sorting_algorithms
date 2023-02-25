@@ -1,51 +1,47 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - sorts a doubly linked list
- * of integers in ascending order using insertion sort algorithm
+ * insertion_sort_list - sorts a doubly linked list of integers
+ * in ascending order using the insertion sort algorithm
  *
  * @list: pointer to doubly linked list to be sorted
  *
- * Return: Void
+ * Return: void
  */
-
 void insertion_sort_list(listint_t **list)
 {
-	/* setting variables for pointer and temporary variable*/
+	/* setting variables for pointer and temporary variable */
 	listint_t *ptr, *tmp;
 
-	/* Check if list is empty*/
+	/* check if list is empty */
 	if (list == NULL)
-                return;
+		return;
 
-        ptr = *list;
+	ptr = *list;
 
-        while (ptr)
-        {
-                while (ptr->next && (ptr->n > ptr->next->n))
-                {
-                        tmp = ptr->next;
-                        ptr->next = tmp->next;
-                        tmp->prev = ptr->prev;
+	while (ptr)
+	{
+		while (ptr->next && (ptr->n > ptr->next->n))
+		{
+			tmp = ptr->next;
+			ptr->next = tmp->next;
+			tmp->prev = ptr->prev;
 
-                        if (ptr->prev)
-                                ptr->prev->next = tmp;
+			if (ptr->prev)
+				ptr->prev->next = tmp;
 
-                        if (tmp->next)
-                                tmp->next->prev = ptr;
+			if (tmp->next)
+				tmp->next->prev = ptr;
+			ptr->prev = tmp;
+			tmp->next = ptr;
 
-                        ptr->prev = tmp;
-                                tmp->next = ptr;
+			if (tmp->prev)
+				ptr = tmp->prev;
 
-                        if (tmp->prev)
-                                ptr = tmp->prev;
-
-                                else
-                                        *list = tmp;
-
-                        print_list(*list);
-                }
-        }
-
-        ptr = ptr->next;
+			else
+				*list = tmp;
+			print_list(*list);
+		}
+	}
+	ptr = ptr->next;
 }
